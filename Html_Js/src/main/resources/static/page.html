@@ -5,8 +5,34 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#submitJson').click(function() {
+			$.ajax({
+				type : 'POST',
+				contentType : 'application/json',
+				url : '/post',
+				data : $('#json').val(),
+				success : function(data) {
+					alert('Success');
+				},
+				error : function(error) {
+					alert('Error');
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<h1>你好</h1>
+	<table>
+		<tr>
+			<td><textarea id="json" rows="10" cols="100">{"name" : "Chen"}</textarea></td>
+		</tr>
+		<tr>
+			<td><input id="submitJson" type="button" value="Send" /></td>
+		</tr>
+	</table>
 </body>
 </html>

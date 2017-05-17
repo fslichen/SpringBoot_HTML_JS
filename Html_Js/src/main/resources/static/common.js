@@ -4,15 +4,14 @@ var data = {
 	name : 'Chen'	
 };
 $.ajax({
-	type : "POST",
-	contentType : "application/json",
-	url : "/post",// You don't need to attach http://localhost:8080.
+	type : 'POST',
+	contentType : 'application/json',
+	url : '/post',// You don't need to attach http://localhost:8080.
 	data : JSON.stringify(data),
-	dataType : 'json',
 	success : function(data) {
-		alert("Success");
+		alert('Success');
 	},
 	error : function(error) {
-		alert("Error");
+		alert('Error');
 	}
 });
