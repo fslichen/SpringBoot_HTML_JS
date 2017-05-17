@@ -1,0 +1,11 @@
+A mistake I encountered in production is like:
+I try to send a json message to the server, and the json in the <input> is like
+{"name" : "Chen"}
+However, once get the text from the <input> using 
+var jsonObject = $(input).val();
+after that you use JSON.stringify(jsonObject) to turn it into a json string
+But unfortunately, the json string looks like this:
+"{\"name\" : \"Chen\"}"
+which makes springboot's jackson unable to handle the request.
+The thing you need to know is that, $(input).val(); is already a json string,
+not a javascript object, so you don't need to turn it into a json string again.
